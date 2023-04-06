@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hover-animation {
+    @apply shadow-[inset_0_0_0_0_#000] text-[black] mr-[-0.25rem] ml-[-0.25rem] my-0 px-1 py-0 hover:text-white hover:shadow-[inset_200px_0_0_0_#000];
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
