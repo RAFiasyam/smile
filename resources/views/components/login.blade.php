@@ -8,20 +8,29 @@
             </svg>
             <p class="mt-[10px] text-gray-400">More Then Cloth.</p>
         </div>
-        <div class="flex flex-col justify-center items-center">
+        <form class="flex flex-col justify-center items-center" action="{{ route('authenticate') }}" method="POST">
+            @csrf
             <div class="mt-[10px] flex flex-col">
-                <label class="pb-[5px]">ID</label>
+                <label class="pb-[5px]">Email</label>
                 <input class="w-[300px] h-[45px] border-2 border-[#333] rounded-[5px] indent-3" placeholder="Your ID..."
-                    type="text">
+                    type="text" id="email" name="email" value="{{ old('email') }}">
+                @if ($errors->has('email'))
+                    <span class="text-red-600 text-sm">{{ $errors->first('email') }}</span>
+                @endif
             </div>
             <div class="mt-[10px] flex flex-col">
                 <label class="pb-[5px]">Password</label>
                 <input class="w-[300px] h-[45px] border-2 border-[#333] rounded-[5px] indent-3"
-                    placeholder="Your Password..." type="password">
+                    placeholder="Your Password..." id="password" name="password" type="password">
+                @if ($errors->has('password'))
+                    <span class="text-red-600 text-sm">{{ $errors->first('password') }}</span>
+                @endif
             </div>
-            <a class="text-black hover:text-white border-[2px] border-black hover:bg-black focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:border-black dark:text-black    dark:hover:text-white dark:hover:bg-black dark:focus:ring-gray-600 font-extrabold w-[243px] text-[24px] mt-[20px]"
-                href="{{ url('tshirts') }}">Log In</a>
-        </div>
-        <p class="absolute bottom-1 text-sm">New user? <span class="text-blue-500"><a href="{{ url('/register') }}">Create an account</a></span></p>
+            <input type="submit"
+                class="text-black hover:text-white border-[2px] border-black hover:bg-black focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:border-black dark:text-black dark:hover:text-white dark:hover:bg-black dark:focus:ring-gray-600 font-extrabold w-[243px] text-[24px] mt-[20px]"
+                value="Login🤘">
+        </form>
+        <p class="absolute bottom-1 text-sm">New user? <span class="text-blue-500"><a
+            href="{{ route('register') }}">Create an account</a></span>🐣</p>
     </div>
 </div>

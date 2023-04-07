@@ -1,4 +1,4 @@
-<div class="px-[15px]">
+<div class="px-[15px] max-md:px-0">
     <a href="/detail">
         <div class="w-[176px] h-[256px] bg-white border-[2px] border-gray-200 rounded-[15px] shadow">
             <div class="flex flex-col justify-center items-center m-[10px]">

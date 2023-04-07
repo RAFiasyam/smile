@@ -24,6 +24,6 @@
                     fill="#333333" />
             </svg>
         </div>
-        <a  class="text-black hover:text-white border-[2px] border-black hover:bg-black focus:ring-4 rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-black dark:text-black dark:hover:text-white dark:hover:bg-black dark:focus:ring-gray-600 font-extrabold w-[243px] text-[24px] mt-[20px]" href="{{ url('/login') }}">Get Start</a>
+        <a  class="text-black hover:text-white border-[2px] border-black hover:bg-black focus:ring-4 rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-black dark:text-black dark:hover:text-white dark:hover:bg-black dark:focus:ring-gray-600 font-extrabold w-[243px] text-[24px] mt-[20px]" href="{{ route('login') }}">Get Start</a>
     </div>
 </div>

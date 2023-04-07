@@ -8,40 +8,39 @@
             </svg>
             <p class="mt-[10px] text-gray-400">More Then Cloth.</p>
         </div>
-        <div class="flex flex-col justify-center items-center">
+        <form class="flex flex-col justify-center items-center" action="{{ route('store') }}" method="POST">
+            @csrf
+            <div class="mt-[10px] flex flex-col ">
+                <label class="pb-[5px]">Name</label>
+                  <input type="text" class="w-[300px] h-[45px] border-2 border-[#333] rounded-[5px] indent-3" id="name" placeholder="Create Name..." name="name" value="{{ old('name') }}">
+                    @if ($errors->has('name'))
+                        <span class="text-red-600">{{ $errors->first('name') }}</span>
+                    @endif
+            </div>
             <div class="mt-[10px] flex flex-col">
-                @csrf
-                <label class="pb-[5px]">Create ID</label>
+                <label class="pb-[5px]">Your Email</label>
                 <input required class="w-[300px] h-[45px] border-2 border-[#333] rounded-[5px] indent-3"
-                    placeholder="Create ID..." type="text" id="id" name="id" value="{{ old('id') }}">
-                @error('password_confirmation')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
+                    placeholder="Your Email..." type="text" id="email" name="email" value="{{ old('email') }}">
+                @if ($errors->has('email'))
+                    <span class="text-red-600 text-sm">{{ $errors->first('email') }}</span>
+                @endif
             </div>
             <div class="mt-[10px] flex flex-col">
                 <label class="pb-[5px]">Create Password</label>
                 <input class="w-[300px] h-[45px] border-2 border-[#333] rounded-[5px] indent-3"
-                    placeholder="Create Password..." id="password" name="password type="password">
-                @error('password_confirmation')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
+                    placeholder="Create Password..." id="password" name="password" type="password">
+                @if ($errors->has('password'))
+                    <span class="text-red-600 text-sm">{{ $errors->first('password') }}</span>
+                @endif
             </div>
             <div class="mt-[10px] flex flex-col">
-                <label class="pb-[5px]">Confirm Password</label>
+                <label for="password_confirmation"  class="pb-[5px]">Confirm Password</label>
                 <input class="w-[300px] h-[45px] border-2 border-[#333] rounded-[5px] indent-3"
-                    placeholder="Confirm Password..." type="password">
-                @error('password_confirmation')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                @enderror
-            </div>
-            <a class="text-black hover:text-white border-[2px] border-black hover:bg-black focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:border-black dark:text-black    dark:hover:text-white dark:hover:bg-black dark:focus:ring-gray-600 font-extrabold w-[243px] text-[24px] mt-[20px]"
-                href="#">Create</a>
-        </div>
+                    placeholder="Confirm Password..." id="password_confirmation" name="password_confirmation" type="password">
+            </div>                                  
+            <input type="submit"
+                class="text-black hover:text-white border-[2px] border-black hover:bg-black focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:border-black dark:text-black    dark:hover:text-white dark:hover:bg-black dark:focus:ring-gray-600 font-extrabold w-[243px] text-[24px] mt-[20px]"
+                value="Register">
+        </form>
     </div>
 </div>
