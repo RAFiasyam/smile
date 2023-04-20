@@ -11,7 +11,7 @@
     <div class="navBar">
         <x-nav-bar />
     </div>
-    <div class="body flex max-md:justify-center">
+    <div class="">
         <x-body/>
     </div>
     <div class="footer">

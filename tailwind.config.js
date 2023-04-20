@@ -9,6 +9,11 @@ module.exports = {
     extend: {
     },
   },
+  variants: {
+    extend: {
+      display: ['group-focus']
+    }, 
+  },
   plugins: [],
 }
 
