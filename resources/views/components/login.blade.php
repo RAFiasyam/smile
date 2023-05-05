@@ -12,7 +12,7 @@
             @csrf
             <div class="mt-[10px] flex flex-col">
                 <label class="pb-[5px]">Email</label>
-                <input class="w-[300px] h-[45px] border-2 border-[#333] rounded-[5px] indent-3" placeholder="Your ID..."
+                <input class="w-[300px] h-[45px] border-2 border-[#333] rounded-[5px] indent-3" placeholder="Your Email..."
                     type="text" id="email" name="email" value="{{ old('email') }}">
                 @if ($errors->has('email'))
                     <span class="text-red-600 text-sm">{{ $errors->first('email') }}</span>

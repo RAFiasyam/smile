@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Auth\LoginRegisterController;
+use App\Http\Middleware\AdminAuthenticated;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,10 +37,25 @@ Route::get('/shoes', function () {
     return view('shoes');
 });
 
-Route::get('/login-admin', function () {
-    return view('admin-login');
+Route::get('/clothes-admin', function () {
+    return view('admin.admin-clothes');
 });
 
+Route::get('/shoes-admin', function () {
+    return view('admin.admin-shoes');
+});
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
+    Route::get('/login', [AdminAuthController::class, 'getLogin'])->name('getLogin');
+    Route::post('/login', [AdminAuthController::class, 'postLogin'])->name('postLogin');
+    Route::get('/dashboard', [AdminAuthController::class, 'getDashboard'])->name('getDashboard');
+
+    Route::group(['middleware' => 'adminauth'], function() {
+        Route::get('/login', function () {
+            return view('admin.auth.admin-login');
+        })->name('getDashboard');
+    });
+});
 
 Route::get('/paypage', function () {
     return view('paypage');

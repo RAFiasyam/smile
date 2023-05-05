@@ -8,19 +8,28 @@
             </svg>
             <p class="mt-[10px] text-gray-400">Stay Hungry Stay Foolish.👻</p>
         </div>
-        <div class="flex flex-col justify-center items-center">
+        <form class="flex flex-col justify-center items-center" action="{{ route('postLogin') }}" method="POST">
+            @csrf
             <div class="mt-[10px] flex flex-col">
-                <label class="pb-[5px]">ID Admin</label>
-                <input class="w-[300px] h-[45px] border-2 border-[#333] rounded-[5px] indent-3" placeholder="Your ID Please..."
-                    type="text">
+                <label class="pb-[5px]">Email Admin</label>
+                <input class="w-[300px] h-[45px] border-2 border-[#333] rounded-[5px] indent-3"
+                    placeholder="Your Email Please..." type="text" id="email" name="email"
+                    value="{{ old('email') }}">
+                @if ($errors->has('email'))
+                    <span class="text-red-600 text-sm">{{ $errors->first('email') }}</span>
+                @endif
             </div>
             <div class="mt-[10px] flex flex-col">
                 <label class="pb-[5px]">Password Admin</label>
                 <input class="w-[300px] h-[45px] border-2 border-[#333] rounded-[5px] indent-3"
-                    placeholder="Your Password Please...." type="password">
+                    placeholder="Your Password Please...." type="password" id="password" name="password">
+                @if ($errors->has('password'))
+                    <span class="text-red-600 text-sm">{{ $errors->first('password') }}</span>
+                @endif
             </div>
-            <a class="text-black hover:text-white border-[2px] border-black hover:bg-black focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:border-black dark:text-black    dark:hover:text-white dark:hover:bg-black dark:focus:ring-gray-600 font-extrabold w-[243px] text-[24px] mt-[20px]"
-                href="#">👌👀👌</a>
-        </div>
+            <input type="submit"
+                class="text-black hover:text-white border-[2px] border-black hover:bg-black focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:border-black dark:text-black dark:hover:text-white dark:hover:bg-black dark:focus:ring-gray-600 font-extrabold w-[243px] text-[24px] mt-[20px]"
+                value="|👻|">
+        </form>
     </div>
 </div>
